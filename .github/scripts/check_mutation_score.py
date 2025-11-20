@@ -23,7 +23,9 @@ def parse_mutation_score(xml_file):
     return round((killed / total) * 100, 2)
 
 def main():
-    report_file = 'target/pit-reports/mutations.xml'
+    report_file = 'core/target/pit-reports/mutations.xml'
+    if not os.path.exists(report_file):
+        report_file = 'target/pit-reports/mutations.xml'
     score_file = '.github/mutation_score.txt'
     
     if not os.path.exists(report_file):
