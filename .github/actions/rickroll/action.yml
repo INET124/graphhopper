@@ -1,0 +1,27 @@
+name: Rickroll on Test Failure
+description: Never gonna give you up, never gonna let you down
+author: GraphHopper Team
+
+inputs:
+  test-status:
+    description: Status of the test job
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Check test status and rickroll if failed
+      shell: bash
+      run: |
+        if [ "${{ inputs.test-status }}" != "success" ]; then
+          echo "=========================================="
+          echo "   TESTS FAILED - YOU JUST GOT RICKROLLED!"
+          echo "=========================================="
+          echo ""
+          echo "   https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+          echo ""
+          echo "   Your tests have failed, and so has your day."
+          echo "   Better luck next time!"
+          echo ""
+          echo "=========================================="
+        fi

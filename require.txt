@@ -1,0 +1,17 @@
+一. 修改 GraphHopper 的 GitHub Actions（CI）流程
+需要修改 GraphHopper 的 GitHub Actions，使其具有以下行为：
+- 在每次提交（commit）之后运行 mutation testing。
+- 如果本次突变测试分数（mutation score）比上一次执行时更低，则 CI 必须失败（build fail）。
+此外，必须：
+- 写文档解释如何修改 GitHub Actions。
+- 说明选择这样实现的原因（设计选择）。
+- 描述如何验证修改确实有效。
+
+二. 在 CI 中加入幽默元素：Rickroll
+必须让 GraphHopper 的测试流程中加入一个幽默设置：
+当任何 GraphHopper 的测试失败时，CI 会触发一个 Rickroll。
+可以用以下方式实现：
+- 使用现成的 GitHub Action，例如 random-rickroll，并修改它让它适用于你们 CI；
+- 或者自己写一个 GitHub Action（例如用 Rust 编写），实现 rickroll 效果。
+只要最终效果是：
+测试失败即可在 CI 中出现 Rickroll 即可。
